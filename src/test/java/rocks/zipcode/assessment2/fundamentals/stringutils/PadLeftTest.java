@@ -13,7 +13,7 @@ public class PadLeftTest {
         // Given
         String hello = "hello";
         int numberOfUnitsToPad = 10;
-        String expected = "     hello";
+        String expected = "          hello";
 
         // When
         String actual = StringUtils.padLeft(hello, numberOfUnitsToPad);
@@ -42,7 +42,7 @@ public class PadLeftTest {
         // Given
         String hello = "The quick";
         int numberOfUnitsToPad = 20;
-        String expected = "           The quick";
+        String expected = "                    The quick";
 
         // When
         String actual = StringUtils.padLeft(hello, numberOfUnitsToPad);
