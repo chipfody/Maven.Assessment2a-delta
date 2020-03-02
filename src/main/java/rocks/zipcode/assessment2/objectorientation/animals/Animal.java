@@ -3,12 +3,19 @@ package rocks.zipcode.assessment2.objectorientation.animals;
 import rocks.zipcode.assessment2.objectorientation.Address;
 import rocks.zipcode.assessment2.objectorientation.Person;
 
+import static java.lang.Long.MIN_VALUE;
+
 /**
  * @author leon on 29/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
 public class Animal {
+    private Long id;
+    private Person owner;
+
     public Animal() {
+        id = MIN_VALUE;
+        owner = new Person();
     }
 
     /**
@@ -16,23 +23,27 @@ public class Animal {
      * @param owner - owner of animal
      */
     public Animal(Long id, Person owner) {
+        this.id = id;
+        this.owner = new Person();
     }
 
     public Long getId() {
-        return null;
+        return id;
     }
 
     public void setId(Long id) {
+        this.id = id;
     }
 
     public Person getOwner() {
-        return null;
+        return owner;
     }
 
     public void setOwner(Person owner) {
+        this.owner = new Person();
     }
 
     public Address getAddress() {
-        return null;
+        return new Address();
     }
 }
