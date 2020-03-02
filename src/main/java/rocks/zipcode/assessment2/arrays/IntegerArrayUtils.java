@@ -1,16 +1,25 @@
 package rocks.zipcode.assessment2.arrays;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * @author leon on 28/11/2018.
  */
 public class IntegerArrayUtils {
+    private static final Logger LOGGER = Logger.getLogger(IntegerArrayUtils.class.getName());
     /**
      * @param integerArray - array to have value added to it
      * @param valueToBeAdded - value to be added to the end of the array
      * @return - identical array with one additional element of `valueToBeAdded` at the end of the array
      */
     public static Integer[] add(Integer[] integerArray, Integer valueToBeAdded) {
-        return null;
+        Integer newArray[] = new Integer[integerArray.length + 1];
+        for (int i = 0; i < integerArray.length; i++) {
+            newArray[i] = integerArray[i];}
+            newArray[integerArray.length] = valueToBeAdded;
+        //LOGGER.log(Level.INFO, "value is: " + newArray);
+        return newArray;
     }
 
     /**
