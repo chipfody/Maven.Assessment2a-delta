@@ -30,10 +30,15 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        String[] newArray = new String[arrayToBeSpliced.length - startingIndex];
-        for (int i = startingIndex; i < arrayToBeSpliced.length; i++) {
-            newArray[i] = arrayToBeSpliced[i];
+        if (startingIndex < 0 || startingIndex > arrayToBeSpliced.length) {
+            String arr[] = {};
+            return arr;
+        } else {
+            String[] newArray = new String[arrayToBeSpliced.length - startingIndex];
+            for (int i = startingIndex; i < arrayToBeSpliced.length; i++) {
+                newArray[i - 1] = arrayToBeSpliced[i];
+            }
+            return null;
         }
-        return null;
     }
-}
+    }
