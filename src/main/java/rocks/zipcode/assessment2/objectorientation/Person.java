@@ -18,7 +18,7 @@ public class Person {
     public Person(Long id, String name, Address address) {
         this.id = id;
         this.name = name;
-        this.address = new Address();
+        this.address = address;
     }
 
     public Person() {
@@ -54,6 +54,20 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+
+        return (
+                ((Person) o).id.equals(this.id) &&
+                ((Person) o).name.equals(this.name) &&
+                ((Person) o).address.equals(this.address)
+                );
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                '}';
     }
 }

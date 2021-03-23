@@ -76,6 +76,23 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        return (
+                ((Address) o).addressLine1.equals(this.addressLine1) &&
+                ((Address) o).addressLine2.equals(this.addressLine2) &&
+                ((Address) o).city.equals(this.city) &&
+                ((Address) o).state.equals(this.state) &&
+                ((Address) o).zipcode.equals(this.zipcode)
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "addressLine1='" + addressLine1 + '\'' +
+                ", addressLine2='" + addressLine2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                '}';
     }
 }
