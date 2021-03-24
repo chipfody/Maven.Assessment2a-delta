@@ -27,7 +27,7 @@ public class BasicStringUtils {
      */
     public static String reverseThenConcatenate(String string1, String string2) {
 
-        return (new StringBuilder(string1).reverse().toString() + new StringBuilder(string2).reverse().toString());
+        return((concatentate(reverse(string1), reverse(string2))));
     }
 
     /**
@@ -36,13 +36,26 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
+        String solution = "";
         char[] remArray = charactersToRemove.toCharArray();
+        char[] stringArray = string.toCharArray();
 
         for (int i = 0; i < remArray.length; i++) {
-                string.replaceAll(String.valueOf(remArray[i]), "");
-                   }
+            for (int j = 0; j < string.length(); j++) {
+                if (stringArray[j] == remArray[i]) {
+                    stringArray[j] = '0';
+                }
+            }
+        }
 
-        return string;
+            for (char c : stringArray) {
+                if (c != '0') {
+                    solution += c;
+                }
+            }
+
+
+        return solution;
     }
 
     /**
@@ -51,6 +64,6 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        return reverse(removeCharacters(string,charactersToRemove));
     }
 }
