@@ -10,12 +10,13 @@ import static java.lang.Long.MIN_VALUE;
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
 public class Animal {
-    private Long id;
-    private Person owner;
+    Long id;
+    Person owner;
+    Address address;
 
     public Animal() {
-        id = MIN_VALUE;
-        owner = new Person();
+        this.setOwner(new Person());
+        this.address = new Address();
     }
 
     /**
@@ -24,11 +25,11 @@ public class Animal {
      */
     public Animal(Long id, Person owner) {
         this.id = id;
-        this.owner = new Person();
+        this.owner = owner;
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -36,14 +37,14 @@ public class Animal {
     }
 
     public Person getOwner() {
-        return owner;
+        return this.owner;
     }
 
     public void setOwner(Person owner) {
-        this.owner = new Person();
+        this.owner = owner;
     }
 
     public Address getAddress() {
-        return new Address();
+        return this.owner.getAddress();
     }
 }

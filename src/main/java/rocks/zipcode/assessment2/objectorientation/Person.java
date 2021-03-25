@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import java.util.Objects;
+
 import static java.lang.Long.MIN_VALUE;
 
 /**
@@ -55,12 +57,21 @@ public class Person {
     @Override
     public boolean equals(Object o) {
 
-        return (
-                ((Person) o).id.equals(this.id) &&
-                ((Person) o).name.equals(this.name) &&
-                ((Person) o).address.equals(this.address)
-                );
-    }
+            Person o1 = (Person) o;
+            if(o1.id == this.id) {
+                return true;
+            }else if(Objects.equals(o1.name, this.name)){
+                return true;
+            }
+            return false;
+        }
+
+//        return (
+//                ((Person) o).id.equals(this.id) &&
+//                ((Person) o).name.equals(this.name) &&
+//                ((Person) o).address.equals(this.address)
+//                );
+//    }
 
     @Override
     public String toString() {
