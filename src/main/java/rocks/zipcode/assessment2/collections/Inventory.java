@@ -9,14 +9,21 @@ import java.util.Map;
  * Use a map to keep track of inventory in a store
  */
 public class Inventory {
+    private List <String> items;
+    private Map <String, Integer> inventory;
 
-    ArrayList<String> inventory;
     /**
      * @param strings list of strings to add / remove / fetch from
      */
     public Inventory(List<String> strings) {
-        inventory = new ArrayList<String>();
-        inventory.addAll(strings);
+        this.items = strings;
+        inventory = new HashMap<>();
+        for (String item : items)
+            if (inventory.containsKey(item)) {
+                inventory.put(item, inventory.get(item) + 1);
+            } else {
+                inventory.put(item, 1);
+            }
 
     }
 
@@ -24,7 +31,7 @@ public class Inventory {
      * nullary constructor initializes a new list
      */
     public Inventory() {
-        inventory = new ArrayList<>();
+        Map <String, Integer> inventory = new HashMap<>();
 
     }
 
@@ -32,7 +39,11 @@ public class Inventory {
      * @param item - increment the number of this item in stock by 1
      */
     public void addItemToInventory(String item) {
-        inventory.add(item);
+        if (inventory.containsKey(item)) {
+            inventory.put(item, inventory.get(item) + 1);
+        } else {
+            inventory.put(item, 1);
+        }
        }
 
 

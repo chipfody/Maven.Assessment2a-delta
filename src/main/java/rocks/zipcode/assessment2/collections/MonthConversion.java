@@ -7,7 +7,7 @@ import java.util.Map;
  * Use a map to solve
  */
 public class MonthConversion {
-    Map<Integer, String>months = new HashMap<>();
+    Map<Integer, String> months = new HashMap<>();
 
     /**
      * @param monthNumber - ordinal of month in the year; i.e. January = 1, February = 2
@@ -26,33 +26,37 @@ public class MonthConversion {
      */
     public String getName(Integer monthNumber) {
 
-        if (monthNumber < 1 || monthNumber > 12 || monthNumber == null) {
-            throw new NullPointerException();
-        } else {
-            System.out.println(months.get(monthNumber));
-            return months.get(monthNumber);
-        }
+     if (isValidNumber(monthNumber)) {
+         return months.get(monthNumber);
+     }
+     else {
+         return null;
+     }
     }
 
     /**
      * @param monthName - name of month
      * @return - the ordinal of the month in the year
      */
-    public int getNumber(String monthName) {
-        Integer key = null;
-    for (Integer ordMonth : months.keySet()) {
-        if (monthName.equals(months.get(ordMonth)))
-            key =  ordMonth;
+    public Integer getNumber(String monthName) {
+        if (isValidMonth(monthName)) {
+            for (Map.Entry<Integer, String> e : months.entrySet()) {
+                if (e.getValue().equals(monthName)) {
+                    return e.getKey();
+                }
+            }
+        }
+
+        return null;
     }
-        return key;
-    }
+
 
     /**
      * @param monthNumber
      * @return true if the monthNumber is in the keySet
      */
     public Boolean isValidNumber(Integer monthNumber) {
-        return null;
+        return months.containsKey(monthNumber);
     }
 
     /**
@@ -60,14 +64,14 @@ public class MonthConversion {
      * @return true if the monthName is in the valueSet
      */
     public Boolean isValidMonth(String monthName) {
-        return null;
+        return months.containsValue(monthName);
     }
 
     /**
      * @return number of entries in this mapping
      */
     public Integer size() {
-        return -1;
+        return months.size();
     }
 
     /**
@@ -75,6 +79,7 @@ public class MonthConversion {
      * @param monthName - name of month
      */
     public void update(Integer monthNumber, String monthName) {
+        months.replace(monthNumber, monthName);
 
     }
 }
